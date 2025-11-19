@@ -44,6 +44,60 @@ Instruções para configuração do Google Analytics serão adicionadas na Fase 
 
 ---
 
-## 🚀 Deploy
+## 🚀 Deploy (Vercel)
 
-Instruções de deploy serão adicionadas na Fase 6.
+O projeto está configurado para deploy automático no Vercel.
+
+### Configuração Inicial
+
+1. **Criar conta no Vercel**
+   - Acesse: https://vercel.com/
+   - Faça login com sua conta GitHub
+
+2. **Importar projeto**
+   - No dashboard, clique em "Add New..." → "Project"
+   - Selecione o repositório `Anderson-J/arppel`
+   - Clique em "Import"
+
+3. **Configurar build**
+   - **Framework Preset**: Vite
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Install Command**: `npm install`
+   
+   (Estas configurações já estão no `vercel.json`)
+
+4. **Variáveis de ambiente** (opcional, para futuras integrações)
+   - Clique em "Environment Variables"
+   - Adicione: `VITE_FORMSPREE_ID` (quando configurar Formspree)
+
+5. **Deploy**
+   - Clique em "Deploy"
+   - Aguarde o build (geralmente 1-2 minutos)
+
+### Deploy Automático
+
+Após a configuração inicial:
+- Cada push para `main` cria um deploy de produção automaticamente
+- Pull requests criam preview deployments
+- URL de produção: `arppel.vercel.app` (ou domínio customizado)
+
+### Domínio Customizado (Opcional)
+
+1. No dashboard do projeto, vá para "Settings" → "Domains"
+2. Adicione seu domínio
+3. Configure os DNS conforme instruções da Vercel
+
+### Comandos Úteis
+
+```bash
+# Instalar Vercel CLI (opcional)
+npm i -g vercel
+
+# Deploy manual
+vercel
+
+# Deploy para produção
+vercel --prod
+```
+

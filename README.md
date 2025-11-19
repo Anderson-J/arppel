@@ -6,6 +6,7 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?logo=tailwind-css)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker)
 ![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?logo=github-actions)
+![Deploy](https://img.shields.io/badge/Deploy-Vercel-000000?logo=vercel)
 
 ## 📋 Sobre o Projeto
 

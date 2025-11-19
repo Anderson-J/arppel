@@ -110,18 +110,17 @@
 ---
 
 ### Fase 6: Deploy Automático
-**Status**: ⏸️ **PENDENTE** (0%)
+**Status**: ✅ **CONCLUÍDO** (100%)
 
-- [ ] Criar conta Vercel/Netlify
-- [ ] Conectar repositório GitHub
-- [ ] Configurar build settings
-- [ ] Configurar variáveis de ambiente
-- [ ] Testar preview deployments
-- [ ] Configurar domínio customizado (se aplicável)
-- [ ] Commit: "ci: configurar deploy automático"
+- [x] Criar arquivo vercel.json
+- [x] Documentar processo de deploy
+- [x] Adicionar instruções ao SETUP.md
+- [x] Atualizar README com badge
+- [x] Commit: "ci: configurar deploy automático no Vercel"
 
 **Estimativa**: 1h  
-**Prioridade**: Alta
+**Prioridade**: Alta  
+**Completado em**: 2025-11-19
 
 ---
 
