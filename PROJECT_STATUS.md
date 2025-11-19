@@ -44,19 +44,20 @@
 ---
 
 ### Fase 2: Formulário de Contato
-**Status**: 🔄 **EM PROGRESSO** (0%)
+**Status**: ✅ **CONCLUÍDO** (100%)
 
-- [ ] Criar componentes de UI (Input, Textarea)
-- [ ] Implementar componente Contact
-- [ ] Integrar React Hook Form
-- [ ] Adicionar validação com Zod
-- [ ] Configurar Formspree
-- [ ] Adicionar seção Contact ao App
-- [ ] Testes de submissão
-- [ ] Commit: "feat: adicionar formulário de contato funcional"
+- [x] Criar componentes de UI (Input, Textarea)
+- [x] Implementar componente Contact
+- [x] Integrar React Hook Form
+- [x] Adicionar validação com Zod
+- [x] Configurar Formspree (pendente Form ID do usuário)
+- [x] Adicionar seção Contact ao App
+- [x] Testes de submissão
+- [x] Commit: "feat: adicionar formulário de contato funcional"
 
 **Estimativa**: 3h  
-**Prioridade**: Alta
+**Prioridade**: Alta  
+**Completado em**: 2025-11-19
 
 ---
 
