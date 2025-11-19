@@ -2,8 +2,8 @@
 
 > Arquivo de gerenciamento e acompanhamento do desenvolvimento da Landing Page
 
-**Última Atualização**: 2025-11-19 00:21  
-**Versão Atual**: 1.0.0  
+**Última Atualização**: 2025-11-19 01:05  
+**Versão Atual**: 2.0.0  
 **Status Geral**: 🟢 Em Desenvolvimento Ativo
 
 ---
@@ -132,13 +132,25 @@
   - Todos os componentes base
   - Docker + CI/CD configurados
 
+### v2.0.0 - Melhorias e Deploy (2025-11-19)  
+- ✅ `feat: adicionar animações com Framer Motion no Hero e Pillars`
+  - Animações fade-in e slide-up
+  - Efeitos stagger nos cards
+  
+- ✅ `feat: adicionar formulário de contato com validação e documentação de setup`
+  - React Hook Form + Zod
+  - Input e Textarea components
+  - SETUP.md com instruções
+
+- ✅ `ci: configurar deploy automático no Vercel`
+  - vercel.json criado
+  - Documentação completa de deploy
+  - Badge no README
+
 ### Próximos Commits Planejados
-1. `feat: adicionar animações com Framer Motion`
-2. `feat: adicionar formulário de contato funcional`
-3. `ci: configurar deploy automático`
-4. `feat: integrar Google Analytics 4`
-5. `perf: otimizar imagens e adicionar lazy loading`
-6. `test: adicionar testes E2E com Playwright`
+1. `feat: integrar Google Analytics 4`
+2. `perf: otimizar imagens e adicionar lazy loading`
+3. `test: adicionar testes E2E com Playwright`
 
 ---
 
@@ -193,14 +205,14 @@ Nenhum issue crítico no momento.
 | Fase | Status | Progresso | Commits |
 |------|--------|-----------|---------|
 | Base | ✅ Concluído | 100% | 1 |
-| Animações | 🔄 Em Progresso | 0% | 0 |
-| Formulário | ⏸️ Pendente | 0% | 0 |
+| Animações | ✅ Concluído | 100% | 1 |
+| Formulário | ✅ Concluído | 100% | 1 |
 | Analytics | ⏸️ Pendente | 0% | 0 |
 | Imagens | ⏸️ Pendente | 0% | 0 |
 | Testes | ⏸️ Pendente | 0% | 0 |
-| Deploy | ⏸️ Pendente | 0% | 0 |
+| Deploy | ✅ Concluído | 100% | 1 |
 
-**Progresso Total**: 14% (1/7 fases)
+**Progresso Total**: 57% (4/7 fases)
 
 ---
 
