@@ -79,14 +79,14 @@
 ---
 
 ### Fase 4: Otimização de Imagens
-**Status**: 🔄 **EM PROGRESSO (AJUSTES PLANEJADOS)** (0%)
+**Status**: 🔄 **EM PROGRESSO (AJUSTES PLANEJADOS)** (60%)
 
 - [ ] Instalar vite-plugin-imagemin *(opcional / adiado: requer toolchain nativo no Docker para compilar gifsicle)*
 - [ ] Configurar plugin no vite.config.js *(somente após viabilizar instalação estável no ambiente Docker)*
 - [ ] Criar script de otimização
-- [ ] Converter imagens para WebP
-- [ ] Implementar lazy loading
-- [ ] Adicionar srcset responsivo
+- [x] Converter imagens para WebP *(diagnóstico: hero visual em WebP 1x/2x)*
+- [x] Implementar lazy loading *(imagem principal do diagnóstico com `loading=\"lazy\"`)*
+- [x] Adicionar srcset responsivo *(`picture` com sources 1x/2x)*
 - [ ] Commit: "perf: otimizar imagens e adicionar lazy loading"
 
 **Notas**: tentativa de instalação de `vite-plugin-imagemin` via `docker-compose exec app npm install vite-plugin-imagemin --save-dev` falhou por dependências nativas ausentes (gifsicle/autoreconf). Otimização de build via plugin é considerada **opcional** e pode ser retomada futuramente; por ora, foco em lazy loading, formatos otimizados (WebP) e `srcset` na aplicação.
@@ -97,13 +97,13 @@
 ---
 
 ### Fase 5: Testes E2E
-**Status**: 🔄 **EM PROGRESSO (PLANO DEFINIDO)** (10%)
+**Status**: ✅ **CONCLUÍDO** (100%)
 
 - [x] Instalar Playwright (`docker-compose exec app npm install -D @playwright/test`)
-- [ ] Configurar playwright.config.mjs
-- [ ] Criar teste de navegação (smoke da landing)
-- [ ] Criar teste de responsividade (larguras desktop/mobile)
-- [ ] Integrar testes na CI/CD (job usando Docker)
+- [x] Configurar playwright.config.mjs
+- [x] Criar teste de navegação (smoke da landing)
+- [x] Criar teste de responsividade (larguras desktop/mobile)
+- [x] Integrar testes na CI/CD (job usando Docker)
 - [ ] Commit: "test: adicionar testes E2E com Playwright"
 
 **Escopo**: sem testes de formulário nesta fase (foco em navegação, responsividade e integração básica).
@@ -152,9 +152,8 @@
   - Badge no README
 
 ### Próximos Commits Planejados
-1. `feat: integrar Google Analytics 4`
-2. `perf: otimizar imagens e adicionar lazy loading`
-3. `test: adicionar testes E2E com Playwright`
+1. `perf: otimizar imagens e adicionar lazy loading` *(automatizar com vite-plugin-imagemin quando toolchain estiver disponível)*
+2. `chore: script de otimização de imagens e documentação do fluxo`
 
 ---
 

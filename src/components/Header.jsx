@@ -18,11 +18,16 @@ export function Header() {
                     <a href="#pricing" className="text-sm font-medium text-slate-600 hover:text-slate-900">
                         Planos
                     </a>
+                    <a href="#diagnostic" className="text-sm font-medium text-slate-600 hover:text-slate-900">
+                        Diagnóstico
+                    </a>
                     <a href="#faq" className="text-sm font-medium text-slate-600 hover:text-slate-900">
                         FAQ
                     </a>
                 </nav>
-                <Button className="bg-slate-900 text-white hover:bg-slate-800">Agendar Diagnóstico</Button>
+                <Button asChild className="bg-slate-900 text-white hover:bg-slate-800">
+                    <a href="#diagnostic">Agendar Diagnóstico</a>
+                </Button>
             </div>
         </header>
     )
