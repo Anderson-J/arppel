@@ -1,8 +1,13 @@
 import { Check } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { useCtaTracking } from "@/hooks/useAnalytics"
 
 export function Pricing() {
+  const { onClick: onClickGuardian } = useCtaTracking("pricing_guardian_comecar_agora")
+  const { onClick: onClickBuilder } = useCtaTracking("pricing_builder_comecar_agora")
+  const { onClick: onClickOnDemand } = useCtaTracking("pricing_ondemand_falar_consultor")
+
   return (
     <section id="pricing" className="py-20 bg-slate-50">
       <div className="container mx-auto px-4 md:px-6">
@@ -38,7 +43,10 @@ export function Pricing() {
               </ul>
             </CardContent>
             <CardFooter>
-              <Button className="w-full bg-white text-slate-900 border border-slate-200 hover:bg-slate-50">
+              <Button
+                className="w-full bg-white text-slate-900 border border-slate-200 hover:bg-slate-50"
+                onClick={onClickGuardian}
+              >
                 Começar Agora
               </Button>
             </CardFooter>
@@ -77,7 +85,12 @@ export function Pricing() {
               </ul>
             </CardContent>
             <CardFooter>
-              <Button className="w-full bg-slate-900 text-white hover:bg-slate-800">Começar Agora</Button>
+              <Button
+                className="w-full bg-slate-900 text-white hover:bg-slate-800"
+                onClick={onClickBuilder}
+              >
+                Começar Agora
+              </Button>
             </CardFooter>
           </Card>
 
@@ -107,7 +120,10 @@ export function Pricing() {
               </ul>
             </CardContent>
             <CardFooter>
-              <Button className="w-full bg-white text-slate-900 border border-slate-200 hover:bg-slate-50">
+              <Button
+                className="w-full bg-white text-slate-900 border border-slate-200 hover:bg-slate-50"
+                onClick={onClickOnDemand}
+              >
                 Falar com Consultor
               </Button>
             </CardFooter>

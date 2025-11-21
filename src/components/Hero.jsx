@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { useCtaTracking } from "@/hooks/useAnalytics"
 
 export function Hero() {
+    const { onClick: onClickFalarComEngenheiro } = useCtaTracking("hero_falar_com_engenheiro")
+    const { onClick: onClickVerPlanos } = useCtaTracking("hero_ver_planos")
     return (
         <section className="relative overflow-hidden pt-24 pb-20 md:pt-32 md:pb-28">
             <div className="container mx-auto px-4 md:px-6">
@@ -47,11 +50,20 @@ export function Hero() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.5 }}
                         >
-                            <Button size="lg" className="bg-slate-900 text-white hover:bg-slate-800">
+                            <Button
+                                size="lg"
+                                className="bg-slate-900 text-white hover:bg-slate-800"
+                                onClick={onClickFalarComEngenheiro}
+                            >
                                 Falar com Engenheiro
                                 <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
-                            <Button size="lg" variant="outline" className="border-slate-200 text-slate-900 hover:bg-slate-50">
+                            <Button
+                                size="lg"
+                                variant="outline"
+                                className="border-slate-200 text-slate-900 hover:bg-slate-50"
+                                onClick={onClickVerPlanos}
+                            >
                                 Ver Planos
                             </Button>
                         </motion.div>

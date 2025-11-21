@@ -38,9 +38,49 @@ O plano gratuito do Formspree oferece:
 
 ---
 
-## 📊 Google Analytics (Futuro)
+## 📊 Google Analytics (GA4) + Docker
 
-Instruções para configuração do Google Analytics serão adicionadas na Fase 3.
+Toda a integração com Google Analytics 4 é feita via `react-ga4` e roda **apenas dentro do container Docker** (nenhuma dependência precisa ser instalada na máquina host).
+
+### 1. Subir o ambiente em Docker
+
+```powershell
+cd C:\Users\Anderson\Documents\arppel\arppel
+docker-compose up --build
+```
+
+O comando acima builda a imagem, instala as dependências dentro do container e inicia o Vite em `http://localhost:5173`.
+
+### 2. Instalar novas dependências (ex: react-ga4) somente via Docker
+
+Sempre que precisar adicionar uma biblioteca, use o container em vez de `npm` local:
+
+```powershell
+cd C:\Users\Anderson\Documents\arppel\arppel
+docker-compose exec app npm install react-ga4 --save
+```
+
+Isso garante que:
+
+- As dependências são instaladas dentro do container (`node_modules` não depende do host).
+- `package.json` e `package-lock.json` são atualizados no diretório do projeto (via volume).
+
+### 3. Configurar o Google Analytics 4
+
+1. Crie uma propriedade GA4 no Google Analytics e copie o **Measurement ID** (formato `G-XXXXXXXXXX`).
+2. Crie um arquivo `.env.local` na raiz do projeto com:
+
+```env
+VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+3. Reinicie o `docker-compose up` se já estiver rodando para que o Vite leia as novas variáveis.
+
+O código já está preparado para:
+
+- Enviar page views da landing (`useAnalyticsPageView`).
+- Enviar eventos de clique de CTA (Hero + Pricing via `useCtaTracking`).
+- Registrar submissões do formulário de contato (`trackFormSubmit`).
 
 ---
 
@@ -100,4 +140,56 @@ vercel
 # Deploy para produção
 vercel --prod
 ```
+
+---
+
+## 🧪 Testes E2E com Playwright via Docker
+
+Os testes de ponta a ponta (E2E) usam `@playwright/test` e rodam **dentro do container Docker**, sem depender de Node/npm instalados na máquina host.
+
+### 1. Instalação (já feita na Fase 5)
+
+```powershell
+cd C:\Users\Anderson\Documents\arppel\arppel
+docker-compose exec app npm install -D @playwright/test
+```
+
+### 2. Arquivos esperados
+
+- `playwright.config.mjs` na raiz do projeto, com:
+   - `testDir: './tests/e2e'`
+   - `use.baseURL: 'http://localhost:5173'`
+   - `webServer` opcional, caso você queira que o Playwright suba o Vite automaticamente.
+- Testes em `tests/e2e`, por exemplo: `tests/e2e/home.spec.mjs` com um smoke test da landing.
+
+### 3. Como executar os testes E2E
+
+1. Certifique-se de que o ambiente Docker está rodando:
+
+```powershell
+cd C:\Users\Anderson\Documents\arppel\arppel
+docker-compose up --build
+```
+
+2. Em outro terminal, rode os testes dentro do container:
+
+```powershell
+docker-compose exec app npx playwright test
+```
+
+ou, se houver script no `package.json`:
+
+```powershell
+docker-compose exec app npm run test:e2e
+```
+
+### 4. Observações
+
+- Se o Playwright solicitar instalação de browsers, use:
+
+```powershell
+docker-compose exec app npx playwright install --with-deps
+```
+
+- A integração na CI/CD pode reaproveitar o mesmo padrão: subir o container da app, rodar `npm run test:e2e` dentro dele e falhar o job em caso de testes quebrados.
 

@@ -1,13 +1,16 @@
-import { Header } from "@/components/header"
-import { Hero } from "@/components/hero"
-import { Pillars } from "@/components/pillars"
-import { Methodology } from "@/components/methodology"
-import { Pricing } from "@/components/pricing"
+import { Header } from "@/components/Header"
+import { Hero } from "@/components/Hero"
+import { Pillars } from "@/components/Pillars"
+import { Methodology } from "@/components/Methodology"
+import { Pricing } from "@/components/Pricing"
 import { Faq } from "@/components/Faq"
-{/*import { Contact } from "@/components/Contact"*/}
-import { Footer } from "@/components/footer"
+// import { Contact } from "@/components/Contact"
+import { Footer } from "@/components/Footer"
+import { useAnalyticsPageView } from "@/hooks/useAnalytics"
 
 export default function Home() {
+  useAnalyticsPageView("/")
+
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -17,7 +20,7 @@ export default function Home() {
         <Methodology />
         <Pricing />
         <Faq />
-        {/*<Contact />*/}
+        {/* <Contact /> */}
       </main>
       <Footer />
     </div>

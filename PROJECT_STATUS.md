@@ -2,8 +2,8 @@
 
 > Arquivo de gerenciamento e acompanhamento do desenvolvimento da Landing Page
 
-**Última Atualização**: 2025-11-19 01:05  
-**Versão Atual**: 2.0.0  
+**Última Atualização**: 2025-11-19 01:30  
+**Versão Atual**: 2.1.0  
 **Status Geral**: 🟢 Em Desenvolvimento Ativo
 
 ---
@@ -62,31 +62,34 @@
 ---
 
 ### Fase 3: Google Analytics
-**Status**: ⏸️ **PENDENTE** (0%)
+**Status**: ✅ **CONCLUÍDO** (100%)
 
-- [ ] Instalar react-ga4
-- [ ] Criar lib/analytics.js
-- [ ] Configurar tracking de page views
-- [ ] Adicionar eventos de CTA clicks
-- [ ] Tracking de submissão de formulário
-- [ ] Configurar variáveis de ambiente
-- [ ] Commit: "feat: integrar Google Analytics 4"
+- [x] Instalar react-ga4 (via Docker: `docker-compose exec app npm install react-ga4 --save`)
+- [x] Criar lib/analytics.js
+- [x] Configurar tracking de page views (hook `useAnalyticsPageView` no `App.jsx`)
+- [x] Adicionar eventos de CTA clicks (Hero + Pricing usando `useCtaTracking`)
+- [x] Tracking de submissão de formulário (Contact com `trackFormSubmit`)
+- [x] Configurar variáveis de ambiente (`VITE_GA_MEASUREMENT_ID`)
+- [x] Commit: "feat: integrar Google Analytics 4"
 
 **Estimativa**: 1h  
-**Prioridade**: Média
+**Prioridade**: Média  
+**Completado em**: 2025-11-19
 
 ---
 
 ### Fase 4: Otimização de Imagens
-**Status**: ⏸️ **PENDENTE** (0%)
+**Status**: 🔄 **EM PROGRESSO (AJUSTES PLANEJADOS)** (0%)
 
-- [ ] Instalar vite-plugin-imagemin
-- [ ] Configurar plugin no vite.config.js
+- [ ] Instalar vite-plugin-imagemin *(opcional / adiado: requer toolchain nativo no Docker para compilar gifsicle)*
+- [ ] Configurar plugin no vite.config.js *(somente após viabilizar instalação estável no ambiente Docker)*
 - [ ] Criar script de otimização
 - [ ] Converter imagens para WebP
 - [ ] Implementar lazy loading
 - [ ] Adicionar srcset responsivo
 - [ ] Commit: "perf: otimizar imagens e adicionar lazy loading"
+
+**Notas**: tentativa de instalação de `vite-plugin-imagemin` via `docker-compose exec app npm install vite-plugin-imagemin --save-dev` falhou por dependências nativas ausentes (gifsicle/autoreconf). Otimização de build via plugin é considerada **opcional** e pode ser retomada futuramente; por ora, foco em lazy loading, formatos otimizados (WebP) e `srcset` na aplicação.
 
 **Estimativa**: 2h  
 **Prioridade**: Média
@@ -94,15 +97,16 @@
 ---
 
 ### Fase 5: Testes E2E
-**Status**: ⏸️ **PENDENTE** (0%)
+**Status**: 🔄 **EM PROGRESSO (PLANO DEFINIDO)** (10%)
 
-- [ ] Instalar Playwright
-- [ ] Configurar playwright.config.js
-- [ ] Criar teste de navegação
-- [ ] Criar teste de formulário
-- [ ] Criar teste de responsividade
-- [ ] Integrar testes na CI/CD
+- [x] Instalar Playwright (`docker-compose exec app npm install -D @playwright/test`)
+- [ ] Configurar playwright.config.mjs
+- [ ] Criar teste de navegação (smoke da landing)
+- [ ] Criar teste de responsividade (larguras desktop/mobile)
+- [ ] Integrar testes na CI/CD (job usando Docker)
 - [ ] Commit: "test: adicionar testes E2E com Playwright"
+
+**Escopo**: sem testes de formulário nesta fase (foco em navegação, responsividade e integração básica).
 
 **Estimativa**: 4h  
 **Prioridade**: Baixa
@@ -207,12 +211,12 @@ Nenhum issue crítico no momento.
 | Base | ✅ Concluído | 100% | 1 |
 | Animações | ✅ Concluído | 100% | 1 |
 | Formulário | ✅ Concluído | 100% | 1 |
-| Analytics | ⏸️ Pendente | 0% | 0 |
+| Analytics | ✅ Concluído | 100% | 1 |
 | Imagens | ⏸️ Pendente | 0% | 0 |
 | Testes | ⏸️ Pendente | 0% | 0 |
 | Deploy | ✅ Concluído | 100% | 1 |
 
-**Progresso Total**: 57% (4/7 fases)
+**Progresso Total**: 71% (5/7 fases)
 
 ---
 

@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { Mail, User, Building, MessageSquare, CheckCircle2 } from 'lucide-react'
+import { trackFormSubmit } from '@/hooks/useAnalytics'
 
 const contactSchema = z.object({
     name: z.string().min(2, 'Nome deve ter pelo menos 2 caracteres'),
@@ -44,6 +45,7 @@ export function Contact() {
 
             if (response.ok) {
                 setIsSubmitted(true)
+                trackFormSubmit('contact_main')
                 reset()
                 setTimeout(() => setIsSubmitted(false), 5000)
             }
